@@ -1,0 +1,12 @@
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.link {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
