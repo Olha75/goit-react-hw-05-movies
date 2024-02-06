@@ -14,7 +14,7 @@ const Home = () => {
       try {
         setLoading(true);
         const { data } = await getTrendingMovies();
-        console.log(data);
+
         setTrendingMovies(data.results || []);
       } catch (error) {
         setError(error.message);
@@ -32,6 +32,7 @@ const Home = () => {
   ));
   return (
     <div>
+      <h2>Trending movies</h2>
       {loading && <Loader />}
       {error && <p>Error: {error} </p>}
       {Boolean(elements.length) && <ol>{elements}</ol>}

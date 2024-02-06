@@ -6,34 +6,9 @@ import MovieDetailsPage from 'page/MovieDetailsPage/MovieDetailsPage';
 import CastPage from 'page/CastPage/CastPage';
 import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
 import NotFoundPage from 'page/NotFoundPage/NotFoundPage';
-import SinglePostPage from 'page/SinglePostPage/SinglePostPage';
-import { searchVideo } from '../api/api';
+// import SinglePostPage from 'page/SinglePostPage/SinglePostPage';
 
 export const App = () => {
-  // useEffect(() => {
-  //   const getApi = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const { data } = await searchVideo(search, page);
-
-  //       if (data.hits && data.hits.length > 0) {
-  //         setItems(prevItems => [...prevItems, ...data.hits]);
-  //         setTotalHits(data.totalHits);
-  //       } else {
-  //         alert('Вибачте, сталася помилка, спробуйте ще.');
-  //       }
-  //     } catch (error) {
-  //       setError(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   if (search) {
-  //     getApi();
-  //   }
-  // }, [search, page]);
-
   return (
     <div>
       <MainMenu />
