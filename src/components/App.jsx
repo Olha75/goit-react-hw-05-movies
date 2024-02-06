@@ -5,26 +5,19 @@ import MoviesPage from 'page/MoviesPage/MoviesPage';
 import MovieDetailsPage from 'page/MovieDetailsPage/MovieDetailsPage';
 import CastPage from 'page/CastPage/CastPage';
 import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
+import NotFoundPage from 'page/NotFoundPage/NotFoundPage';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <div>
       <MainMenu />
       <Routes>
-        <Route path="/" element={HomePage}></Route>
-        <Route path="/movies" element={MoviesPage}></Route>
-        <Route path="/movies/:movieId" element={MovieDetailsPage}></Route>
-        <Route path="/movies/:movieId/cast" element={CastPage}></Route>
-        <Route path="/movies/:movieId/reviews" element={ReviewsPage}></Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="/movies/:movieId/cast" element={<CastPage />} />
+        <Route path="/movies/:movieId/reviews" element={<ReviewsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
