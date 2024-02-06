@@ -1,4 +1,10 @@
 import MainMenu from './MainMenu/MainMenu';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from 'page/HomePage/HomePage';
+import MoviesPage from 'page/MoviesPage/MoviesPage';
+import MovieDetailsPage from 'page/MovieDetailsPage/MovieDetailsPage';
+import CastPage from 'page/CastPage/CastPage';
+import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
 
 export const App = () => {
   return (
@@ -13,6 +19,13 @@ export const App = () => {
       }}
     >
       <MainMenu />
+      <Routes>
+        <Route path="/" element={HomePage}></Route>
+        <Route path="/movies" element={MoviesPage}></Route>
+        <Route path="/movies/:movieId" element={MovieDetailsPage}></Route>
+        <Route path="/movies/:movieId/cast" element={CastPage}></Route>
+        <Route path="/movies/:movieId/reviews" element={ReviewsPage}></Route>
+      </Routes>
     </div>
   );
 };
