@@ -1,33 +1,33 @@
 // import { Link } from 'react-router-dom';
 // import { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
-// import { getTrendingMovies } from '../../api/api';
+// import { getTrendingQuery } from '../../api/api';
 // import Loader from 'components/Loader/Loader';
 // import css from './home.module.css';
 
-// const Home = () => {
-//   const [trendingMovies, setTrendingMovies] = useState();
+// const Movies = () => {
+//   const [movies, setMovies] = useState();
 //   const [loading, setLoading] = useState(false);
 //   const [error, setError] = useState(null);
 
-//   const { id } = useParams();
+//   const { query } = useParams();
 
 //   useEffect(() => {
-//     const fetchTrendingMovies = async () => {
+//     const fetchGetTrendingQuery = async query => {
 //       try {
 //         setLoading(true);
-//         const { data } = await getTrendingMovies(id);
-//         setTrendingMovies(data.results?.length ? data.results : []);
+//         const { data } = await getTrendingQuery(query);
+//         setMovies(data.results?.length ? data.results : []);
 //       } catch (error) {
 //         setError(error.message);
 //       } finally {
 //         setLoading(false);
 //       }
 //     };
-//     fetchTrendingMovies();
+//     fetchGetTrendingQuery();
 //   }, []);
 
-//   const elements = trendingMovies.map(({ id, title }) => (
+//   const elements = movies.map(({ query }) => (
 //     <li key={id}>
 //       <Link to={`/movies/${id}`}>{title}</Link>
 //     </li>
@@ -47,5 +47,4 @@
 //   );
 // };
 
-// export default Home;
-// getTrendingMovies;
+// export default Movies;

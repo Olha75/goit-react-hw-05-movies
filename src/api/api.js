@@ -7,13 +7,24 @@ const BEARER_TOKEN =
 
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
-  params: { api_key: API_KEY, tocen: BEARER_TOKEN },
+  params: { api_key: API_KEY, bearer: BEARER_TOKEN },
 });
 
 export const getTrendingMovies = async () => {
   return instance.get('/trending/movie/day', {
     headers: {
       Authorization: `Bearer ${BEARER_TOKEN}`,
+    },
+  });
+};
+
+export const getTrendingQuery = async query => {
+  return instance.get('/search/movie?include_adult', {
+    headers: {
+      Authorization: `Bearer ${BEARER_TOKEN}`,
+    },
+    params: {
+      query: query,
     },
   });
 };
