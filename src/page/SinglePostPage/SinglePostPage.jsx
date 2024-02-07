@@ -1,9 +1,10 @@
+import SinglePostMuvie from '../../components/SinglePostMovie/SinglePostMovie';
 import css from './single-post-page.module.css';
 
 const SinglePostPage = () => {
   return (
     <div>
-      <h1>Single Post Page</h1>
+      <SinglePostMuvie />
     </div>
   );
 };

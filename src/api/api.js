@@ -19,14 +19,19 @@ export const getTrendingMovies = async () => {
 };
 
 export const getTrendingQuery = async query => {
-  return instance.get('/search/movie?include_adult', {
+  const options = {
     headers: {
       Authorization: `Bearer ${BEARER_TOKEN}`,
     },
     params: {
       query: query,
     },
-  });
+  };
+  return instance.get('/search/movie', options);
+};
+
+export const getPostById = id => {
+  return instance.get('/${id}');
 };
 
 // /trending/get-trending список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.

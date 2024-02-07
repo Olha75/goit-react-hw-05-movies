@@ -9,15 +9,21 @@
 //   const [movies, setMovies] = useState();
 //   const [loading, setLoading] = useState(false);
 //   const [error, setError] = useState(null);
-
-//   const { query } = useParams();
+//   const [value, setValue] = useState();
 
 //   useEffect(() => {
+//     const query = useParams.get(query);
+
 //     const fetchGetTrendingQuery = async query => {
 //       try {
 //         setLoading(true);
-//         const { data } = await getTrendingQuery(query);
-//         setMovies(data.results?.length ? data.results : []);
+//         const response = await getTrendingQuery(query);
+//         setMovies(response.data.results?.length === 0);
+//         {
+//           setValue('');
+//           alert('Вибачте, за вашим запитом відео не знайдено');
+//         }
+//         setMovies(response.data.results);
 //       } catch (error) {
 //         setError(error.message);
 //       } finally {
@@ -25,7 +31,46 @@
 //       }
 //     };
 //     fetchGetTrendingQuery();
+//   }, [useParams]);
+
+//   useEffect(() => {
+//     inputRef.current.focus();
 //   }, []);
+
+//   const handleSubmit = e => {
+//     e.preventDefault();
+//     onSubmit(search);
+//     setSearch('');
+//   };
+
+//   return (
+//     <header className={css.header}>
+//       <form className={css.searchForm} onSubmit={handleSubmit}>
+//         <div>
+//           <label>
+//             <input
+//               ref={inputRef}
+//               className={css.searchFormInput}
+//               value={value}
+//               onChange={e => setValue(e.target.value)}
+//               required
+//               type="text"
+//               name="search"
+//               placeholder="Введіть слово"
+//               autoFocus
+//             />
+//           </label>
+//         </div>
+//         <button className={css.searchFormButton} type="submit">
+//           Пошук
+//         </button>
+//       </form>
+//       <li></li>
+//     </header>
+//   );
+// };
+
+// export default Movies;
 
 //   const elements = movies.map(({ query }) => (
 //     <li key={id}>
@@ -47,4 +92,7 @@
 //   );
 // };
 
-// export default Movies;
+//  const handleChange = e => {
+//    const { value } = e.target;
+//    setSearch(value);
+//  };
