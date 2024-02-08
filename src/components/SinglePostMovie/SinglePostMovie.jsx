@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPostById } from '../../api/api';
 import Loader from '../Loader/Loader';
@@ -10,6 +10,7 @@ const SinglePostMovie = () => {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPostMovie = async () => {
@@ -26,10 +27,15 @@ const SinglePostMovie = () => {
     fetchPostMovie();
   }, []);
 
+  const goBack = () => navigate(-1);
+
   return (
     <div>
       {loading && <Loader />}
       {error && <p>Error: {error} </p>}
+      <button onClick={goBack} type="button">
+        Go back
+      </button>
       {movies && (
         <>
           <h2>{movies.title}</h2>

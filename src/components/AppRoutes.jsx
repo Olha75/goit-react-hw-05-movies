@@ -8,6 +8,7 @@ import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
 import NotFoundPage from 'page/NotFoundPage/NotFoundPage';
 import SharedLayout from './SharedLayout/SharedLayout';
 import SinglePostPage from 'page/SinglePostPage/SinglePostPage';
+import MovieSearchPage from 'page/MovieSearchPage/MovieSearchPage';
 
 const AppRoutes = () => {
   return (
@@ -15,12 +16,14 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="movies" element={<MoviesPage />} />
+          {/* <Route path="movies/" element={<MoviesPage />} /> */}
+          <Route path="movies/:id" element={<SinglePostPage />} />
+          {/* <Route path="movies/:id" element={<MovieSearchPage />} /> */}
           <Route path="movies/:movieId" element={<MovieDetailsPage />} />
           <Route path="movies/:movieId/cast" element={<CastPage />} />
           <Route path="movies/:movieId/reviews" element={<ReviewsPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="movies/:id" element={<SinglePostPage />} />
         </Route>
       </Routes>
     </>
