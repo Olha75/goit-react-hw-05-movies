@@ -18,16 +18,26 @@ export const getTrendingMovies = async () => {
   });
 };
 
-export const getTrendingQuery = async query => {
-  const options = {
-    headers: {
-      Authorization: `Bearer ${BEARER_TOKEN}`,
-    },
-    params: {
-      query: query,
-    },
-  };
-  return instance.get('/search/movie', options);
+// export const fetchMovie = async name => {
+//   const { data } = await axios.get(`/name/${name}`);
+//   const movie = transformMovieData(data);
+//   return movie[0];
+// };
+
+// export const getTrendingQuery = async query => {
+//   const options = {
+//     headers: {
+//       Authorization: `Bearer ${BEARER_TOKEN}`,
+//     },
+//     params: {
+//       query: query,
+//     },
+//   };
+//   return instance.get('/search/movie', options);
+// };
+
+export const getCastMuviesById = id => {
+  return instance.get(`/${id}/cast`);
 };
 
 export const getPostById = id => {

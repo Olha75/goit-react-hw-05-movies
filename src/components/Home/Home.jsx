@@ -3,41 +3,60 @@ import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../../api/api';
 import Loader from 'components/Loader/Loader';
 import css from './home.module.css';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTrendingMovies = async () => {
-      try {
-        setLoading(true);
-        const { data } = await getTrendingMovies();
-
-        setTrendingMovies(data.results || []);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchTrendingMovies();
+    getTrendingMovies().them(data => setTrendingMovies(data));
   }, []);
 
-  const elements = trendingMovies.map(({ id, title }) => (
-    <li key={id}>
-      <Link to={`/movies/${id}`}>{title}</Link>
-    </li>
-  ));
   return (
     <div>
-      <h2>Trending movies</h2>
+      <MoviesList movies={movies} />
+      {/* <h2>Trending movies</h2>
       {loading && <Loader />}
       {error && <p>Error: {error} </p>}
-      {Boolean(elements.length) && <ol>{elements}</ol>}
+      {Boolean(elements.length) && <ol>{elements}</ol>} */}
     </div>
   );
 };
+
+// const Home = () => {
+//   const [trendingMovies, setTrendingMovies] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchTrendingMovies = async () => {
+//       try {
+//         setLoading(true);
+//         const { data } = await getTrendingMovies();
+
+//         setTrendingMovies(data.results || []);
+//       } catch (error) {
+//         setError(error.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchTrendingMovies();
+//   }, []);
+
+//   const elements = trendingMovies.map(({ id, title }) => (
+//     <li key={id}>
+//       <Link to={`/movies/${id}`}>{title}</Link>
+//     </li>
+//   ));
+//   return (
+//     <div>
+//       <h2>Trending movies</h2>
+//       {loading && <Loader />}
+//       {error && <p>Error: {error} </p>}
+//       {Boolean(elements.length) && <ol>{elements}</ol>}
+//     </div>
+//   );
+// };
 
 export default Home;

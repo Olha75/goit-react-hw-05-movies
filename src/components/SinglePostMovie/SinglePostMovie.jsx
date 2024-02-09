@@ -1,4 +1,10 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useParams,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPostById } from '../../api/api';
 import Loader from '../Loader/Loader';
@@ -10,6 +16,10 @@ const SinglePostMovie = () => {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
+  const location = useLocation();
+
+  const from = location.state?.from || '/';
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +37,7 @@ const SinglePostMovie = () => {
     fetchPostMovie();
   }, []);
 
-  const goBack = () => navigate(-1);
+  const goBack = () => navigate(from);
 
   return (
     <div>
@@ -40,6 +50,10 @@ const SinglePostMovie = () => {
         <>
           <h2>{movies.title}</h2>
           <p>{movies.body}</p>
+          <Link to="cast" state={{ from }}>
+            Cast
+          </Link>
+          <Outlet />
         </>
       )}
     </div>

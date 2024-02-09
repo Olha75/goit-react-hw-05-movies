@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+// import { Link, useLocation } from 'react-router-dom';
 // import { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 // import { getTrendingQuery } from '../../api/api';
@@ -10,6 +10,8 @@
 //   const [loading, setLoading] = useState(false);
 //   const [error, setError] = useState(null);
 //   const [value, setValue] = useState();
+
+const location = useLocation();
 
 //   useEffect(() => {
 //     const query = useParams.get(query);
@@ -74,7 +76,7 @@
 
 //   const elements = movies.map(({ query }) => (
 //     <li key={id}>
-//       <Link to={`/movies/${id}`}>{title}</Link>
+//       <Link to={`/movies/${id}`} state={{from:location}}>{title}</Link>
 //     </li>
 //   ));
 //   return (
