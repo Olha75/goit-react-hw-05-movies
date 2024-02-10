@@ -30,13 +30,37 @@ export const getTrendingByQuery = query => {
   return instance.get('/search/movie', options);
 };
 
-// export const getCastMuviesById = id => {
-//   return instance.get(`/${id}/cast`);
-// };
+export const getMovieById = movie_id => {
+  return instance.get(
+    `/movie/${movie_id}`,
+    {
+      params: {
+        api_key: API_KEY,
+      },
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${BEARER_TOKEN}`,
+      },
+    }
+  );
+};
 
-// export const getPostById = id => {
-//   return instance.get('/${id}');
-// };
+export const getCastById = movie_id => {
+  return instance.get(
+    `/movie/${movie_id}/credits`,
+    {
+      params: {
+        api_key: API_KEY,
+      },
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${BEARER_TOKEN}`,
+      },
+    }
+  );
+};
 
 // /trending/get-trending список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.
 // /search/search-movies пошук фільму за ключовим словом на сторінці фільмів.

@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../../api/api';
 import Loader from 'components/Loader/Loader';
-import css from './home.module.css';
-import MoviesList from 'components/MoviesList/MoviesList';
+// import css from './home.module.css'
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -15,8 +14,7 @@ const Home = () => {
       try {
         setLoading(true);
         const { data } = await getTrendingMovies();
-        setTrendingMovies(data?.length ? data : []);
-        // setTrendingMovies(data.results || []);
+        setTrendingMovies(data.results?.length ? data.results : []);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -33,6 +31,7 @@ const Home = () => {
       </Link>
     </li>
   ));
+
   return (
     <div>
       <h2>Trending movies</h2>

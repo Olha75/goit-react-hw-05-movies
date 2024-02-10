@@ -1,4 +1,4 @@
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getTrendingByQuery } from '../../api/api';
@@ -9,50 +9,49 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [value, setValue] = useState(useSearchParams.get('query' || ''));
-
   const location = useLocation();
 
   useEffect(() => {
-    const query = searchParams.get(query);
+    const params = new URLSearchParams(location.search);
+    const query = params.get('query') || '';
 
     const fetchGetTrendingQuery = async query => {
       try {
         setLoading(true);
         const response = await getTrendingByQuery(query);
-        setMovies(response.data.results?.length === 0);
         if (response.data.results.length === 0) {
-          setValue('');
-          alert('Вибачте, за вашим запитом відео не знайдено');
+          setError('Вибачте, за вашим запитом відео не знайдено');
+        } else {
+          setMovies(response.data.results);
         }
-        setMovies(response.data.results);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
-    fetchGetTrendingQuery();
-  }, [searchParams]);
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+    fetchGetTrendingQuery(query);
+  }, [location.search]);
 
   const onFormSubmit = async e => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const query = formData.get('search');
 
-    if (!value) {
-      alert('Вибачте, за вашим запитом відео не знайдено');
+    if (!query) {
+      setError('Введіть слово для пошуку');
       return;
     }
 
     try {
       setLoading(true);
-      setSearchParams({ query: value });
-      const response = await getTrendingByQuery(value);
-      setMovies(prevMovies => [...prevMovies, ...response.data.results]);
+      const response = await getTrendingByQuery(query);
+      if (response.data.results.length === 0) {
+        setError('Вибачте, за вашим запитом відео не знайдено');
+      } else {
+        setMovies(response.data.results);
+      }
     } catch (error) {
       setError(error.message);
     } finally {
@@ -60,23 +59,13 @@ const Movies = () => {
     }
   };
 
-  //   const handleSubmit = ({ search }) => {
-  //     e.preventDefault();
-  //     onSubmit(search);
-  //     setMovies('');
-  //   };
-
   return (
     <header className={css.header}>
       <form className={css.searchForm} onSubmit={onFormSubmit}>
         <div>
           <label>
             <input
-              ref={inputRef}
               className={css.searchFormInput}
-              value={value}
-              onChange={e => setValue(e.target.value)}
-              required
               type="text"
               name="search"
               placeholder="Введіть слово"
@@ -88,9 +77,9 @@ const Movies = () => {
           Пошук
         </button>
       </form>
+      {loading && <Loader />}
+      {error && <p>{error}</p>}
       <ol>
-        {loading && <Loader />}
-        // {error && <p>Error: {error} </p>}
         {movies.map(({ id, title }) => (
           <li key={id}>
             <Link to={`/movies/${id}`} state={{ from: location }}>
@@ -104,28 +93,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-//   const elements = movies.map(({ query }) => (
-//     <li key={id}>
-//       <Link to={`/movies/${id}`} state={{from:location}}>{title}</Link>
-//     </li>
-//   ));
-//   return (
-//     <div>
-//       {loading && <Loader />}
-//       {error && <p>Error: {error} </p>}
-//       {Boolean(elements.length) && <ol>{elements}</ol>}
-//       {trendingMovies && (
-//         <>
-//           <h2>{trendingMovies.title}</h2>
-//           <p>{trendingMovies.body}</p>
-//         </>
-//       )}
-//     </div>
-//   );
-// };
-
-//  const handleChange = e => {
-//    const { value } = e.target;
-//    setSearch(value);
-//  };
