@@ -18,34 +18,34 @@ export const getTrendingMovies = async () => {
   });
 };
 
-// export const fetchMovie = async name => {
-//   const { data } = await axios.get(`/name/${name}`);
-//   const movie = transformMovieData(data);
-//   return movie[0];
-// };
-
-// export const getTrendingQuery = async query => {
-//   const options = {
-//     headers: {
-//       Authorization: `Bearer ${BEARER_TOKEN}`,
-//     },
-//     params: {
-//       query: query,
-//     },
-//   };
-//   return instance.get('/search/movie', options);
-// };
-
-export const getCastMuviesById = id => {
-  return instance.get(`/${id}/cast`);
+export const getTrendingByQuery = query => {
+  const options = {
+    headers: {
+      Authorization: `Bearer ${BEARER_TOKEN}`,
+    },
+    params: {
+      query: query,
+    },
+  };
+  return instance.get('/search/movie', options);
 };
 
-export const getPostById = id => {
-  return instance.get('/${id}');
-};
+// export const getCastMuviesById = id => {
+//   return instance.get(`/${id}/cast`);
+// };
+
+// export const getPostById = id => {
+//   return instance.get('/${id}');
+// };
 
 // /trending/get-trending список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.
 // /search/search-movies пошук фільму за ключовим словом на сторінці фільмів.
 // /movies/get-movie-details запит повної інформації про фільм для сторінки кінофільму.
 // /movies/get-movie-credits запит інформації про акторський склад для сторінки кінофільму.
 // /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
+
+// export const fetchMovie = async name => {
+//   const { data } = await axios.get(`/name/${name}`);
+//   const movie = transformMovieData(data);
+//   return movie[0];
+// };
