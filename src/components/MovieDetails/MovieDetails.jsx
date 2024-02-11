@@ -9,10 +9,8 @@ import {
 
 import { getMovieById } from '../../api/api';
 import Loader from '../Loader/Loader';
-// import Cast from './Cast/Cast';
 import myImage from '../../image/default_no_actor.jpg';
-
-// import css from './movieDetails.module.css'
+import css from './movieDetails.module.css';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState();
@@ -45,21 +43,23 @@ const MovieDetails = () => {
     <div>
       {loading && <Loader />}
       {error && <p>Error: {error} </p>}
-      <button onClick={goBack} type="button">
+      <button className={css.goBack} onClick={goBack} type="button">
         Go back
       </button>
       {movie && (
         <>
-          <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
-          {movie.backdrop_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt="poster"
-            />
-          ) : (
-            <img src={defaultImg} alt="poster" />
-          )}
+          <div>
+            <h2>{movie.title}</h2>
+            <p>{movie.overview}</p>
+            {movie.backdrop_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt="poster"
+              />
+            ) : (
+              <img src={defaultImg} alt="poster" />
+            )}
+          </div>
           <div>
             <h1>
               {movie.title} ({new Date(movie.release_date).getFullYear()})

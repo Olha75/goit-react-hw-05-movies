@@ -1,0 +1,53 @@
+.movie_title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-left: 20px;
+  color: beige;
+  font-size: 20px;
+  padding: 20px 0 0 45px;
+  margin: 0;
+  .text-with-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+  }
+}
+
+.movie_detals_list {
+  padding: 20px;
+  margin-left: 20px;
+  color: rgb(195, 242, 226);
+  margin-top: 10px;
+}
+
+.movie_list_body {
+  margin-left: 20px;
+  color: rgb(195, 242, 226);
+  font-size: 12px;
+  margin-right: 5px;
+  padding-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(195, 242, 226);
+  font-size: 16px;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.goBack {
+  margin-left: 30px;
+  width: 120px;
+  padding: 5px;
+  border-radius: 5px;
+  color: yellow;
+  background-color: blueviolet;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.goBack:hover {
+  color: blueviolet;
+  background-color: yellow;
+}
