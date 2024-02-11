@@ -57,6 +57,21 @@ export const getCastById = movie_id => {
   });
 };
 
+export const getReviewsById = movie_id => {
+  return instance.get(
+    `/movie/${movie_id}/reviews`,
+    {
+      params: {
+        api_key: API_KEY,
+      },
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${BEARER_TOKEN}`,
+      },
+    }
+  );
+};
 // export const getCastById = movie_id => {
 //   return instance.get(
 //     `/movie/${movie_id}/credits`,

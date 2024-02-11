@@ -1,11 +1,10 @@
-import css from './reviews-page.module.css';
+// import css from './reviews-page.module.css';
+import Reviews from '../../components/MovieDetails/Reviews/Reviews';
+import { useParams } from 'react-router-dom';
 
 const ReviewsPage = () => {
-  return (
-    <div>
-      <h1>Reviews page</h1>
-    </div>
-  );
+  const { movieId } = useParams();
+  return <Reviews movieId={movieId} />;
 };
 
 export default ReviewsPage;

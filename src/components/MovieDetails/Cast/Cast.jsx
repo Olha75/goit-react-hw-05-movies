@@ -9,7 +9,6 @@ const Cast = () => {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const defaultImg = URL;
   const { movieId } = useParams();
 
   useEffect(() => {
