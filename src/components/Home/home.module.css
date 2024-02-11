@@ -36,3 +36,12 @@ a:hover {
   color: yellow;
   font-weight: bold;
 }
+
+.movie_details_wrapper {
+  margin-left: 100px;
+  padding: 0 16px;
+}
+
+.img_movie_details {
+  display: flex;
+}

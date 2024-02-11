@@ -11,7 +11,29 @@
   }
 }
 
-.movie_detals_list {
+.all_wrap {
+  display: flex;
+}
+
+.md_img_wrapper {
+  display: flex;
+
+  padding: 5px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.text_md_wrapper {
+  display: flex;
+  padding: 0 0 0 20px;
+  margin: 0;
+  margin: 10px 20px 0 20px;
+  color: rgb(195, 242, 226);
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.text_md_overview {
   padding: 20px;
   margin-left: 20px;
   color: rgb(195, 242, 226);
@@ -36,18 +58,56 @@ a:hover {
   color: yellow;
 }
 
-.goBack {
+.btn_goBack {
   margin-left: 30px;
   width: 120px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 8px;
   color: yellow;
   background-color: blueviolet;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.goBack:hover {
+.btn_goBack:hover {
   color: blueviolet;
   background-color: yellow;
+}
+
+.title_boss {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.user_score_md {
+  color: rgb(36, 31, 55);
+  /* font-style: italic; */
+  margin: 0;
+  font-weight: bold;
+}
+
+.overview_md {
+  margin: 0;
+}
+
+.genres_list_md {
+  margin: 0;
+}
+
+.add_in_md_wrapper {
+  display: flex;
+  padding: 0 0 0 20px;
+  margin: 0;
+  margin: 10px 20px 0 20px;
+  color: rgb(195, 242, 226);
+  flex-direction: column;
+  max-width: 600px;
+  list-style-type: none;
+}
+
+.list_add_in_md {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  color: rgb(195, 242, 226);
 }
