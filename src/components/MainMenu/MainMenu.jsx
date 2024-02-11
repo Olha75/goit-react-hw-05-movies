@@ -14,21 +14,6 @@ const MainMenu = () => {
           Movies
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink className={css.link} to="/movies/:movieId">
-          MovieDetails
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={css.link} to="/movies/:movieId/cast">
-          Cast
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={css.link} to="/movies/:movieId/reviews">
-          Reviews
-        </NavLink>
-      </li> */}
     </ul>
   );
 };
