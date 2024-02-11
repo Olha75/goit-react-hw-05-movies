@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastById } from '../../../api/api';
 import Loader from '../../Loader/Loader';
-import myImage from '../../../image/default_no_actor.jpg';
-// import css from './cast.module.css';
+import myImage from '../../../image/default_no_actor_1.jpg';
+import css from './cast.module.css';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -27,8 +27,9 @@ const Cast = () => {
   }, [movieId]);
 
   const elements = cast.map(({ id, original_name, profile_path }) => (
-    <li key={id}>
+    <li className={css.cast_items} key={id}>
       <img
+        className={css.img_cast}
         src={
           profile_path
             ? `https://image.tmdb.org/t/p/original${profile_path}`
@@ -46,7 +47,7 @@ const Cast = () => {
     <>
       {loading && <Loader />}
       {error && <p>{error}</p>}
-      {isCast && <ol>{elements}</ol>}
+      {isCast && <ul className={css.cast_list}>{elements}</ul>}
     </>
   );
 };
