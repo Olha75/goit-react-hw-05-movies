@@ -19,7 +19,7 @@ const AppRoutes = () => {
         <Route index element={<HomePage />} />
         <Route path="movies/" element={<MoviesPage />} />
         <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<CastPage />} />
+          <Route path="credits" element={<CastPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

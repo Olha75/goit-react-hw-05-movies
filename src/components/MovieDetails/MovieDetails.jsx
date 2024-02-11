@@ -51,7 +51,7 @@ const MovieDetails = () => {
       {movie && (
         <>
           <h2>{movie.title}</h2>
-          <p>{movie.body}</p>
+          <p>{movie.overview}</p>
           {movie.backdrop_path ? (
             <img
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

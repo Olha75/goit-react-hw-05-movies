@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastById } from '../../../api/api';
 import Loader from '../../Loader/Loader';
+import myImage from '../../../image/default_no_actor.jpg';
 // import css from './cast.module.css';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  // const defaultImg = URL;
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -32,16 +33,13 @@ const Cast = () => {
         src={
           profile_path
             ? `https://image.tmdb.org/t/p/original${profile_path}`
-            : defaultImg
+            : myImage
         }
         alt={'poster'}
       />
       <p>{original_name}</p>
     </li>
   ));
-
-  const defaultImg =
-    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   const isCast = Boolean(cast.length);
 
