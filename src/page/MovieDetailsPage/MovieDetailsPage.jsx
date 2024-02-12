@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
-import CastPage from '../CastPage/CastPage';
-import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
-import css from './movie-details-page.module.css';
+// import CastPage from '../CastPage/CastPage';
+// import ReviewsPage from 'page/ReviewsPage/ReviewsPage';
+// import css from './movie-details-page.module.css';
 
 const MovieDetailsPage = () => {
-  const [showCast, setShowCast] = useState(false);
-  const [showReviews, setShowReviews] = useState(false);
+  // const [showCast, setShowCast] = useState(false);
+  // const [showReviews, setShowReviews] = useState(false);
 
-  const handleCastClick = () => {
-    setShowCast(true);
-    setShowReviews(false);
-  };
+  // const handleCastClick = () => {
+  //   setShowCast(true);
+  //   setShowReviews(false);
+  // };
 
-  const handleReviewsClick = () => {
-    setShowCast(false);
-    setShowReviews(true);
-  };
+  // const handleReviewsClick = () => {
+  //   setShowCast(false);
+  //   setShowReviews(true);
+  // };
 
   return (
     <div>
@@ -29,8 +29,8 @@ const MovieDetailsPage = () => {
           Reviews
         </button>
       </div> */}
-      {showCast && <CastPage />}
-      {showReviews && <ReviewsPage />}
+      {/* {showCast && <CastPage />}
+      {showReviews && <ReviewsPage />} */}
     </div>
   );
 };

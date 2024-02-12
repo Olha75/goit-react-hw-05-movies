@@ -17,3 +17,9 @@
 .img_cast {
   max-width: 200px;
 }
+
+.no_text_cast {
+  font-size: 30px;
+  text-align: center;
+  color: yellow;
+}

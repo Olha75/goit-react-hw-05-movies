@@ -47,7 +47,11 @@ const Cast = () => {
     <>
       {loading && <Loader />}
       {error && <p>{error}</p>}
-      {isCast && <ul className={css.cast_list}>{elements}</ul>}
+      {isCast && cast.length > 0 ? (
+        <ul className={css.cast_list}>{elements}</ul>
+      ) : (
+        <p className={css.no_text_cast}>Sorry, no reviews available</p>
+      )}
     </>
   );
 };
