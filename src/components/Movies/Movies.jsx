@@ -15,13 +15,21 @@ const Movies = () => {
     const params = new URLSearchParams(location.search);
     const query = params.get('query') || '';
 
+    if (!query) {
+      setError(null);
+      setMovies([]);
+      return;
+    }
+
     const fetchGetTrendingQuery = async query => {
       try {
         setLoading(true);
         const response = await getTrendingByQuery(query);
         if (response.data.results.length === 0) {
           setError('Вибачте, за вашим запитом відео не знайдено');
+          setMovies([]);
         } else {
+          setError(null);
           setMovies(response.data.results);
         }
       } catch (error) {
@@ -40,7 +48,7 @@ const Movies = () => {
     const query = formData.get('search');
 
     if (!query) {
-      setError('Введіть слово для пошуку');
+      setError();
       return;
     }
 
@@ -60,35 +68,41 @@ const Movies = () => {
   };
 
   return (
-    <header className={css.header}>
-      <form className={css.searchForm} onSubmit={onFormSubmit}>
-        <div>
-          <label>
-            <input
-              className={css.searchFormInput}
-              type="text"
-              name="search"
-              placeholder="Введіть слово"
-              autoFocus
-            />
-          </label>
-        </div>
-        <button className={css.searchFormButton} type="submit">
-          Пошук
-        </button>
-      </form>
-      {loading && <Loader />}
-      {error && <p>{error}</p>}
-      <ol>
+    <div className={css.movie_wrapper}>
+      <div className={css.forma_movies}>
+        <form className={css.searchForm} onSubmit={onFormSubmit}>
+          <div>
+            <label>
+              <input
+                className={css.searchFormInput}
+                type="text"
+                name="search"
+                placeholder="Введіть слово"
+                autoFocus
+              />
+            </label>
+          </div>
+          <button className={css.searchFormButton} type="submit">
+            Пошук
+          </button>
+        </form>
+        {loading && <Loader />}
+        {error && <p className={css.error}>{error}</p>}
+      </div>
+      <ol className={css.movie_list}>
         {movies.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
+          <li className={css.movie_list_body} key={id}>
+            <Link
+              className={css.movie_link}
+              to={`/movies/${id}`}
+              state={{ from: location }}
+            >
               {title}
             </Link>
           </li>
         ))}
       </ol>
-    </header>
+    </div>
   );
 };
 

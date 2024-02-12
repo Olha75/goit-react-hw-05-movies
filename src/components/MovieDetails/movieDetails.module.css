@@ -59,17 +59,23 @@ a:hover {
 }
 
 .btn_goBack {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 15px;
   margin-left: 30px;
   width: 120px;
   padding: 5px;
   border-radius: 8px;
   color: yellow;
   background-color: blueviolet;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
+  box-shadow: 0px 2px 4px -1px rgba(255, 255, 0, 0.2),
+    0px 4px 5px 0px rgba(255, 255, 0, 0.14),
+    0px 1px 10px 0px rgba(255, 255, 0, 0.12);
 }
 
 .btn_goBack:hover {
+  cursor: pointer;
   color: blueviolet;
   background-color: yellow;
 }
@@ -124,6 +130,8 @@ a:hover {
 }
 
 .btn_add_in_md_rew {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
   margin-left: 8px;
   width: 120px;
   height: 30px;
@@ -132,9 +140,9 @@ a:hover {
   color: rgb(36, 31, 55);
   background-color: blueviolet;
   font-weight: bold;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  /* white-space: nowrap; */
+  box-shadow: 0px 2px 4px -1px rgba(255, 255, 0, 0.2),
+    0px 4px 5px 0px rgba(255, 255, 0, 0.14),
+    0px 1px 10px 0px rgba(255, 255, 0, 0.12);
 }
 
 .btn_add_in_md_rew:hover {
@@ -142,6 +150,8 @@ a:hover {
   background-color: rgb(36, 31, 55);
 }
 .btn_add_in_md {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
   width: 120px;
   height: 30px;
   padding: 5px 35px;
@@ -149,9 +159,9 @@ a:hover {
   color: rgb(36, 31, 55);
   background-color: blueviolet;
   font-weight: bold;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  /* white-space: nowrap; */
+  box-shadow: 0px 2px 4px -1px rgba(255, 255, 0, 0.2),
+    0px 4px 5px 0px rgba(255, 255, 0, 0.14),
+    0px 1px 10px 0px rgba(255, 255, 0, 0.12);
 }
 
 .btn_add_in_md:hover {
