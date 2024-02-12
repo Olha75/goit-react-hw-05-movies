@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/475.af3ffb31.chunk.css","mappings":"AAAA,4BAGE,UAAa,CAFb,cAAe,CACf,iBAEF","sources":["components/MovieDetails/Reviews/reviews.module.css"],"sourcesContent":[".no_text_rev {\n  font-size: 30px;\n  text-align: center;\n  color: yellow;\n}\n"],"names":[],"sourceRoot":""}
