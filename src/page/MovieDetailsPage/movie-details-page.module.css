@@ -1,3 +1,21 @@
+.add_in_md_wrapper {
+  display: flex;
+  padding: 0 0 0 20px;
+  margin: 0;
+  margin: 10px 20px 0 20px;
+  color: rgb(195, 242, 226);
+  flex-direction: column;
+  max-width: 600px;
+  list-style-type: none;
+}
+
+.list_add_in_md {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  color: rgb(195, 242, 226);
+}
+
 .btn_add_in_md {
   margin-left: 30px;
   width: 120px;

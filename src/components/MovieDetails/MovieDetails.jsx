@@ -82,16 +82,24 @@ const MovieDetails = () => {
           <div className={css.add_in_md_wrapper}>
             <h2>Additional information</h2>
             <ul className={css.list_add_in_md}>
-              {/* <li>
-                <Link to="credits" state={{ from }}>
+              <li>
+                <Link
+                  className={css.btn_add_in_md}
+                  to="credits"
+                  state={{ from }}
+                >
                   Cast
                 </Link>
               </li>
               <li>
-                <Link to="reviews" state={{ from }}>
+                <Link
+                  className={css.btn_add_in_md_rew}
+                  to="reviews"
+                  state={{ from }}
+                >
                   Reviews
                 </Link>
-              </li> */}
+              </li>
               <Suspense fallback={<Loader />}>
                 <Outlet />
               </Suspense>

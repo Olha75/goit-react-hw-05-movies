@@ -21,14 +21,14 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <MovieDetails />
-      <div>
+      {/* <div>
         <button className={css.btn_add_in_md} onClick={handleCastClick}>
           Cast
         </button>
         <button className={css.btn_add_in_md} onClick={handleReviewsClick}>
           Reviews
         </button>
-      </div>
+      </div> */}
       {showCast && <CastPage />}
       {showReviews && <ReviewsPage />}
     </div>
