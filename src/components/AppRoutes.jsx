@@ -22,8 +22,8 @@ const AppRoutes = () => {
           <Route path="credits" element={<CastPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
