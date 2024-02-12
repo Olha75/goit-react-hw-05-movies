@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
-// import css from './not-found-page.module.css';
+import { Link, Outlet } from 'react-router-dom'; // Заміна Routes та Route на Outlet
+import css from './not-found-page.module.css';
 
 const NotFoundPage = () => {
   return (
-    <div>
-      <h1>Вибачте, цієї сторінки не їснує</h1>
-      <Link to="/">Повернутися до головної сторінки</Link>
+    <div className={css.notFound_wrapper}>
+      <h1>Вибачте, цієї сторінки не існує</h1>
+      {/* Використовуйте Outlet для відображення посилання */}
+      <Outlet />
+      <Link className={css.btn_goHome} to="/">
+        Повернутися до головної сторінки
+      </Link>
     </div>
   );
 };
