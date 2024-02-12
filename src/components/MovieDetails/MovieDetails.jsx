@@ -80,7 +80,7 @@ const MovieDetails = () => {
             </div>
           </div>
           <div className={css.add_in_md_wrapper}>
-            <h2>Additional information</h2>
+            <h2 className={css.ad_in_title}>Additional information</h2>
             <ul className={css.list_add_in_md}>
               <li>
                 <Link

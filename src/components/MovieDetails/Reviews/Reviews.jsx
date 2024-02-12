@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsById } from 'api/api';
 import Loader from '../../Loader/Loader';
-// import css from './reviews.module.css';
+import css from './reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -45,7 +45,7 @@ const Reviews = () => {
           ))}
         </ol>
       ) : (
-        <p>No reviews available</p>
+        <p className={css.no_text_rev}>Sorry, no reviews available</p>
       )}
     </>
   );
