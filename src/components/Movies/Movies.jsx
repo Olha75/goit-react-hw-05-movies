@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getTrendingByQuery } from '../../api/api';
@@ -10,10 +10,10 @@ const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const query = params.get('query') || '';
+    const query = searchParams.get('query') || '';
 
     if (!query) {
       setError(null);
@@ -40,7 +40,7 @@ const Movies = () => {
     };
 
     fetchGetTrendingQuery(query);
-  }, [location.search]);
+  }, [searchParams]);
 
   const onFormSubmit = async e => {
     e.preventDefault();
@@ -52,19 +52,20 @@ const Movies = () => {
       return;
     }
 
-    try {
-      setLoading(true);
-      const response = await getTrendingByQuery(query);
-      if (response.data.results.length === 0) {
-        setError('Вибачте, за вашим запитом відео не знайдено');
-      } else {
-        setMovies(response.data.results);
-      }
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
+    setSearchParams({ query });
+    // try {
+    //   setLoading(true);
+    //   const response = await getTrendingByQuery(query);
+    //   if (response.data.results.length === 0) {
+    //     setError('Вибачте, за вашим запитом відео не знайдено');
+    //   } else {
+    //     setMovies(response.data.results);
+    //   }
+    // } catch (error) {
+    //   setError(error.message);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
