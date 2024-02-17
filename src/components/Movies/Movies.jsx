@@ -51,21 +51,7 @@ const Movies = () => {
       setError();
       return;
     }
-
     setSearchParams({ query });
-    // try {
-    //   setLoading(true);
-    //   const response = await getTrendingByQuery(query);
-    //   if (response.data.results.length === 0) {
-    //     setError('Вибачте, за вашим запитом відео не знайдено');
-    //   } else {
-    //     setMovies(response.data.results);
-    //   }
-    // } catch (error) {
-    //   setError(error.message);
-    // } finally {
-    //   setLoading(false);
-    // }
   };
 
   return (

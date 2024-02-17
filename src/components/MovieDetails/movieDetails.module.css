@@ -108,14 +108,10 @@ a:hover {
   flex-direction: column;
   /* max-width: 600px; */
   list-style-type: none;
+  padding-bottom: 40px;
 }
 
 .list_add_in_md {
-  /* list-style-type: none;
-  display: flex;
-  margin: 0;
-  color: rgb(195, 242, 226); */
-  /* max-width: 2000px; */
   display: flex;
   flex-wrap: wrap;
   gap: 30px;

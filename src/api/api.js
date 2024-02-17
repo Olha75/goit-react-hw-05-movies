@@ -72,30 +72,3 @@ export const getReviewsById = movie_id => {
     }
   );
 };
-// export const getCastById = movie_id => {
-//   return instance.get(
-//     `/movie/${movie_id}/credits`,
-//     {
-//       params: {
-//         api_key: API_KEY,
-//       },
-//     },
-//     {
-//       headers: {
-//         Authorization: `Bearer ${BEARER_TOKEN}`,
-//       },
-//     }
-//   );
-// };
-
-// /trending/get-trending список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.
-// /search/search-movies пошук фільму за ключовим словом на сторінці фільмів.
-// /movies/get-movie-details запит повної інформації про фільм для сторінки кінофільму.
-// /movies/get-movie-credits запит інформації про акторський склад для сторінки кінофільму.
-// /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
-
-// export const fetchMovie = async name => {
-//   const { data } = await axios.get(`/name/${name}`);
-//   const movie = transformMovieData(data);
-//   return movie[0];
-// };
