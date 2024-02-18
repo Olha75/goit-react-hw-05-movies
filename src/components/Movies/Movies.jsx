@@ -1,15 +1,15 @@
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getTrendingByQuery } from '../../api/api';
 import Loader from 'components/Loader/Loader';
 import css from './movies.module.css';
+import MoviesList from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -76,19 +76,7 @@ const Movies = () => {
         {loading && <Loader />}
         {error && <p className={css.error}>{error}</p>}
       </div>
-      <ol className={css.movie_list}>
-        {movies.map(({ id, title }) => (
-          <li className={css.movie_list_body} key={id}>
-            <Link
-              className={css.movie_link}
-              to={`/movies/${id}`}
-              state={{ from: location }}
-            >
-              {title}
-            </Link>
-          </li>
-        ))}
-      </ol>
+      {movies && <MoviesList movies={movies} />}
     </div>
   );
 };

@@ -61,15 +61,6 @@ const MovieDetails = () => {
                 }
                 alt={'poster'}
               />
-              {/* {movie.backdrop_path ? (
-                <img
-                  className={css.img_movie_details}
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt="poster"
-                />
-              ) : (
-                <img src={defaultImg} alt="poster" />
-              )} */}
             </div>
             <div className={css.text_md_wrapper}>
               <h1 className={css.title_boss}>

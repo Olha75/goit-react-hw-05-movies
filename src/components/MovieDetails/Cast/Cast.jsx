@@ -26,21 +26,6 @@ const Cast = () => {
     fetchCast();
   }, [movieId]);
 
-  const elements = cast.map(({ id, original_name, profile_path }) => (
-    <li className={css.cast_items} key={id}>
-      <img
-        className={css.img_cast}
-        src={
-          profile_path
-            ? `https://image.tmdb.org/t/p/original${profile_path}`
-            : myImage
-        }
-        alt={'poster'}
-      />
-      <p>{original_name}</p>
-    </li>
-  ));
-
   const isCast = Boolean(cast.length);
 
   return (
@@ -48,9 +33,24 @@ const Cast = () => {
       {loading && <Loader />}
       {error && <p>{error}</p>}
       {isCast && cast.length > 0 ? (
-        <ul className={css.cast_list}>{elements}</ul>
+        <ul className={css.cast_list}>
+          {cast.map(({ id, original_name, profile_path }) => (
+            <li className={css.cast_items} key={id}>
+              <img
+                className={css.img_cast}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/original${profile_path}`
+                    : myImage
+                }
+                alt={'poster'}
+              />
+              <p>{original_name}</p>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p className={css.no_text_cast}>Sorry, no reviews available</p>
+        <p className={css.no_text_cast}>Sorry, no cast available</p>
       )}
     </>
   );
