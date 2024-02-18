@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../../api/api';
 import Loader from 'components/Loader/Loader';
 import css from './home.module.css';
+import MoviesList from 'components/MovieList/MovieList';
 
 const Home = () => {
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ const Home = () => {
       try {
         setLoading(true);
         const { data } = await getTrendingMovies();
-        setTrendingMovies(data.results?.length ? data.results : []);
+        setMovies(data.results?.length ? data.results : []);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -24,21 +24,13 @@ const Home = () => {
     fetchTrendingMovies();
   }, []);
 
-  const elements = trendingMovies.map(({ id, title }) => (
-    <li className={css.home_list_body} key={id}>
-      <Link to={`/movies/${id}`} state={{ from: '/' }}>
-        {title}
-      </Link>
-    </li>
-  ));
-
   return (
     <div>
       <h2 className={css.home_title}>Trending movies</h2>
       {loading && <Loader />}
       {error && <p>Error: {error} </p>}
-      {Boolean(elements.length) && (
-        <ol className={css.home_list}>{elements}</ol>
+      {Boolean(movies.length) && (
+        <MoviesList movies={movies} state={{ from: '/' }} />
       )}
     </div>
   );
