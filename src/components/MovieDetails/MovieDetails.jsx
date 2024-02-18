@@ -50,8 +50,6 @@ const MovieDetails = () => {
         <>
           <div className={css.all_wrap}>
             <div className={css.md_img_wrapper}>
-              {/* <h2 className={css.movie_title}>{movie.title}</h2>
-            <p>{movie.overview}</p> */}
               <img
                 className={css.img_movie_details}
                 src={

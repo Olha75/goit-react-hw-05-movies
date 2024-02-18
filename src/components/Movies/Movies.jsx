@@ -1,6 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
 import { getTrendingByQuery } from '../../api/api';
 import Loader from 'components/Loader/Loader';
 import css from './movies.module.css';

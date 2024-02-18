@@ -43,7 +43,7 @@ const Cast = () => {
                     ? `https://image.tmdb.org/t/p/original${profile_path}`
                     : myImage
                 }
-                alt={'poster'}
+                alt={'foto_actor'}
               />
               <p>{original_name}</p>
             </li>
