@@ -9,7 +9,7 @@ import {
 
 import { getMovieById } from '../../api/api';
 import Loader from '../Loader/Loader';
-import myImage from '../../image/default_no_actor.jpg';
+import myImage from '../../image/default_no_poster.gif';
 import css from './movieDetails.module.css';
 
 const MovieDetails = () => {
@@ -36,7 +36,7 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [movieId]);
 
-  const defaultImg = myImage;
+  // const defaultImg = myImage;
   const goBack = () => navigate(from);
 
   return (
@@ -52,7 +52,16 @@ const MovieDetails = () => {
             <div className={css.md_img_wrapper}>
               {/* <h2 className={css.movie_title}>{movie.title}</h2>
             <p>{movie.overview}</p> */}
-              {movie.backdrop_path ? (
+              <img
+                className={css.img_movie_details}
+                src={
+                  movie.backdrop_path
+                    ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                    : myImage
+                }
+                alt={'poster'}
+              />
+              {/* {movie.backdrop_path ? (
                 <img
                   className={css.img_movie_details}
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -60,7 +69,7 @@ const MovieDetails = () => {
                 />
               ) : (
                 <img src={defaultImg} alt="poster" />
-              )}
+              )} */}
             </div>
             <div className={css.text_md_wrapper}>
               <h1 className={css.title_boss}>
